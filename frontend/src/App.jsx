@@ -7,6 +7,7 @@ import { bootstrapAuth } from "./features/auth/authSlice";
 import { ROLES } from "./utils/constants";
 
 const LoginPage = lazy(() => import("./pages/auth/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/auth/RegisterPage"));
 const UnauthorizedPage = lazy(() => import("./pages/auth/UnauthorizedPage"));
 const SuperAdminDashboard = lazy(() =>
   import("./pages/admin/SuperAdminDashboard"),
@@ -63,7 +64,7 @@ function App() {
         />
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
-        <Route path="register" element={<Navigate to="/register" replace />} />
+        <Route path="/register" element={<RegisterPage to="/register" replace />} />
       </Routes>
     </Suspense>
   );
