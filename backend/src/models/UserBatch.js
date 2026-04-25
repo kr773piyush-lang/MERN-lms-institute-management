@@ -2,10 +2,7 @@ import mongoose from 'mongoose';
 
 const userBatchSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => require('uuid').v4(),
-    },
+
     instituteId: {
       type: String,
       ref: 'Institute',

@@ -6,7 +6,7 @@ const config = {
   env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 5000,
   apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:5000',
-  clientUrl: process.env.CLIENT_URL || 'http://localhost:3000',
+  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
   
   // Database
   database: {
@@ -30,7 +30,8 @@ const config = {
 
   // CORS
   cors: {
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    // origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    origin: "*",
     credentials: true,
   },
 

@@ -3,15 +3,31 @@ import bcryptjs from 'bcryptjs';
 
 const userSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => require('uuid').v4(),
-    },
     instituteId: {
       type: String,
       ref: 'Institute',
       required: true,
     },
+
+    role:{
+        type: String,
+        enum: ['STUDENT', 'TEACHER', 'INSTITUTE_ADMIN', 'SUPER_ADMIN'],
+        required: true,
+        default: 'STUDENT',
+    },
+
+    courseId: {
+        type: String,
+        ref: 'Course',
+        required: true,
+    },
+
+    subCourseId: {
+        type: String,
+        ref: 'SubCourse',
+        required: false,
+    },
+
     firstName: {
       type: String,
       required: true,

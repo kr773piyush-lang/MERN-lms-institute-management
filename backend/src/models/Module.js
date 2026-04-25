@@ -2,10 +2,6 @@ import mongoose from 'mongoose';
 
 const moduleSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => require('uuid').v4(),
-    },
     courseId: {
       type: String,
       ref: 'Course',

@@ -2,10 +2,6 @@ import mongoose from 'mongoose';
 
 const courseSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => require('uuid').v4(),
-    },
     instituteId: {
       type: String,
       ref: 'Institute',
@@ -24,23 +20,24 @@ const courseSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    duration: {
-      type: Number, // in hours
-      required: false,
-    },
-    level: {
-      type: String,
-      enum: ['BEGINNER', 'INTERMEDIATE', 'ADVANCED'],
-      default: 'BEGINNER',
-    },
+
+    subCourses: [
+      {
+        type: String,
+        ref: 'SubCourse',
+      },
+    ],
+
     active: {
       type: Boolean,
       default: true,
     },
+
     isDeleted: {
       type: Boolean,
       default: false,
     },
+
     createdBy: {
       type: String,
       required: false,

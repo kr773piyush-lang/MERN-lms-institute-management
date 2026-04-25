@@ -3,4 +3,5 @@ username: piyush_db_user
 Password: 1Eev7MJYjjZyJhLF
 
 mongo_uri = mongodb+srv://piyush_db_user:1Eev7MJYjjZyJhLF@cluster0.jju1qpq.mongodb.net/
+mongo_uri = mongodb://localhost:27017
 mail = zeacesxlbyafzumq

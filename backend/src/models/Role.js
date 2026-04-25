@@ -2,10 +2,7 @@ import mongoose from 'mongoose';
 
 const roleSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => require('uuid').v4(),
-    },
+
     roleName: {
       type: String,
       enum: ['SUPER_ADMIN', 'INSTITUTE_ADMIN', 'TEACHER', 'STUDENT'],

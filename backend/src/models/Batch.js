@@ -4,7 +4,7 @@ const batchSchema = new mongoose.Schema(
   {
     _id: {
       type: String,
-      default: () => require('uuid').v4(),
+      default: () => crypto.randomUUID(),
     },
     instituteId: {
       type: String,

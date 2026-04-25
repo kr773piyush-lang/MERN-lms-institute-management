@@ -17,6 +17,9 @@ import batchRoutes from './routes/batchRoutes.js';
 import enrollmentRoutes from './routes/enrollmentRoutes.js';
 import progressRoutes from './routes/progressRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
+import studentSubmissionRoutes from './routes/studentSubmissionRoutes.js';
+import userSelectedCourseRoutes from './routes/userSelectedCourseRoutes.js';
+import publicRoutes from './routes/publicRoutes.js';
 
 const logger = new Logger('App');
 const app = express();
@@ -28,6 +31,13 @@ app.use(morgan('combined'));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(activityLogger);
+
+app.get('/', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Welcome to the Multi-Tenant LMS API',
+    });
+});
 
 // Health check
 app.get('/health', (req, res) => {
@@ -57,6 +67,10 @@ app.use('/api/batches', batchRoutes);
 app.use('/api/enrollments', enrollmentRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/submissions', studentSubmissionRoutes);
+app.use('/api/selected-courses', userSelectedCourseRoutes);
+
+app.use('/api/public', publicRoutes);
 
 // 404 Handler
 app.use(notFoundHandler);

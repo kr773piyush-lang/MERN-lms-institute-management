@@ -2,10 +2,7 @@ import mongoose from 'mongoose';
 
 const sessionSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      default: () => require('uuid').v4(),
-    },
+
     userId: {
       type: String,
       ref: 'User',
